@@ -1,23 +1,32 @@
 import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import NavigationBar from './components/navbar';
+import { Outlet } from 'react-router-dom';
+import { UserContext } from './components/user-context'
+
 
 function App() {
+  /* tate variables to render login or logout */ 
+  /* Navbar */ 
+  const [loggedIn, setLoggedIn] = React.useState(false);
+
+  /* Calling context to insert the state variables for navbar use*/ 
+  const ctx = React.useContext(UserContext);
+  
+  /* Add state variables to context. Now they can be used */ 
+  ctx.loginState = [loggedIn, setLoggedIn];
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    
+      {/* The outlet tag allows the router to render links*/}
+      <NavigationBar/>
+      <br/>
+      <div className="centered">
+      <Outlet />
+      </div>
     </div>
   );
 }
