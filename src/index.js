@@ -28,8 +28,8 @@ look initially */}
 
       <UserContext.Provider value={
                 {users:[
-                    { name:'Gregory',
-                      email:'greg@josephs.com',
+                    { name:'mondher',
+                      email:'admin@email.com',
                       password:'notsecure',
                       balance:100,
                       history:[] }
